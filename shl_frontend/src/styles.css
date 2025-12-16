@@ -1,0 +1,140 @@
+:root {
+  --primary: #0067b1;   /* SHL blue */
+  --secondary: #f5f9fc;
+  --text-dark: #1f2933;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--secondary);
+  color: var(--text-dark);
+}
+
+/* Header */
+.header {
+  background: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  height: clamp(60px, 8vw, 90px);
+  margin-bottom: 0.8rem;
+}
+.header h1 {
+  margin: 0.5rem 0;
+  font-size: 1.6rem;
+}
+
+.header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* Main container */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.card label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.card textarea,
+.card input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.card textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.card button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card button:hover {
+  opacity: 0.9;
+}
+
+/* Results */
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Result Card */
+.result-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+}
+
+.result-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0.4rem 0;
+}
+
+.result-card p {
+  font-size: 0.9rem;
+  margin: 0.6rem 0;
+}
+
+.result-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
