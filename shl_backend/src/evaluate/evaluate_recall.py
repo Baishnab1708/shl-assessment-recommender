@@ -12,7 +12,7 @@ TRAIN_FILE = BASE_DIR / "data/train/Gen_AI_Dataset.xlsx"  # adjust if filename d
 
 df = pd.read_csv(CATALOG_FILE).fillna("")
 index = faiss.read_index(str(FAISS_FILE))
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L12-v2")
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 train_df = pd.read_excel(TRAIN_FILE)
 

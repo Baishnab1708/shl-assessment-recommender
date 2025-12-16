@@ -16,7 +16,7 @@ FAISS_FILE = BASE_DIR / "data/index/faiss.index"
 
 df = pd.read_csv(CATALOG_FILE).fillna("")
 index = faiss.read_index(str(FAISS_FILE))
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L12-v2")
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 app = FastAPI(
     title="SHL Assessment Recommendation API",

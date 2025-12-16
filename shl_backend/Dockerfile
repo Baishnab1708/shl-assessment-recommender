@@ -22,11 +22,8 @@ RUN pip install --no-cache-dir --upgrade pip \
 COPY src ./src
 COPY data ./data
 
-RUN python - <<EOF
-from sentence_transformers import SentenceTransformer
-SentenceTransformer("sentence-transformers/all-MiniLM-L12-v2")
-print("SBERT model cached successfully")
-EOF
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); print('SBERT model cached successfully')"
+
 
 EXPOSE 8000
 

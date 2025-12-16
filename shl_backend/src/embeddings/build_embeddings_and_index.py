@@ -23,8 +23,8 @@ texts = df["concise_text"].astype(str).tolist()
 
 print(f"Loaded {len(texts)} texts for embedding")
 
-print("Loading Sentence-BERT (all-MiniLM-L12-v2)...")
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L12-v2")
+print("Loading Sentence-BERT (all-MiniLM-L6-v2)...")
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 print("Computing embeddings...")
 embeddings = model.encode(
