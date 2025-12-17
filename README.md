@@ -26,6 +26,7 @@ This project was built as part of the **SHL AI Intern take-home assignment** and
 
 ## System Architecture
 
+```text
 User Query / Job Description
 ↓
 Query Expansion
@@ -39,7 +40,7 @@ Test-Type Balanced Selection
 FastAPI Backend
 ↓
 Web Frontend
-
+```
 
 ---
 
@@ -223,6 +224,4 @@ Learning-to-rank models
 Personalization based on role seniority
 
 ## Author
-
 Baishnab Behera
-GenAI / ML Engineer
