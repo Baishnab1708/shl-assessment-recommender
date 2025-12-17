@@ -17,7 +17,6 @@ body {
   color: var(--text-dark);
 }
 
-/* Header */
 .header {
   background: white;
   text-align: center;
@@ -40,14 +39,12 @@ body {
   font-size: 0.95rem;
 }
 
-/* Layout */
 .container {
   max-width: 920px;
   margin: 2.5rem auto;
   padding: 1rem;
 }
 
-/* Input Card */
 .card {
   background: white;
   padding: 1.6rem;
@@ -72,12 +69,6 @@ body {
   font-size: 0.95rem;
 }
 
-.card textarea:focus,
-.card input:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
 .card textarea {
   min-height: 95px;
   resize: vertical;
@@ -94,33 +85,19 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.card button:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-}
-
-/* Results Grid */
 .results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.3rem;
 }
 
-/* Result Card */
 .result-card {
   background: white;
   padding: 1.25rem;
   border-radius: 14px;
   border: 1px solid var(--border);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.result-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
 }
 
 .result-card h3 {
@@ -133,18 +110,4 @@ body {
   font-size: 0.85rem;
   color: var(--text-light);
   margin: 0.45rem 0;
-}
-
-.result-card p {
-  font-size: 0.9rem;
-  margin: 0.6rem 0;
-}
-
-.result-card a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
 }

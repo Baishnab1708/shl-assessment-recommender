@@ -4,16 +4,10 @@ async function getRecommendations() {
   const resultsDiv = document.getElementById("results");
 
   const query = queryInput.value.trim();
-
   let topK = Number(topKInput.value);
 
-  if (Number.isNaN(topK) || topK < 1) {
-    topK = 5;
-  }
-
-  if (topK > 10) {
-    topK = 10;
-  }
+  if (Number.isNaN(topK) || topK < 1) topK = 5;
+  if (topK > 10) topK = 10;
 
   resultsDiv.innerHTML = "";
 
