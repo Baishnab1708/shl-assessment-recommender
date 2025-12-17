@@ -4,7 +4,16 @@ async function getRecommendations() {
   const resultsDiv = document.getElementById("results");
 
   const query = queryInput.value.trim();
-  const topK = Number(topKInput.value);
+
+  let topK = Number(topKInput.value);
+
+  if (Number.isNaN(topK) || topK < 1) {
+    topK = 5;
+  }
+
+  if (topK > 10) {
+    topK = 10;
+  }
 
   resultsDiv.innerHTML = "";
 
@@ -16,11 +25,7 @@ async function getRecommendations() {
   resultsDiv.innerHTML = "<p>Loading recommendations...</p>";
 
   try {
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
-    if (!API_BASE_URL) {
-      throw new Error("API base URL not configured");
-    }
+    const API_BASE_URL = "https://shl-recomendation-system.onrender.com";
 
     const response = await fetch(`${API_BASE_URL}/recommend`, {
       method: "POST",
@@ -39,6 +44,7 @@ async function getRecommendations() {
 
     const data = await response.json();
     renderResults(data.recommended_assessments);
+
   } catch (error) {
     console.error(error);
     resultsDiv.innerHTML =
@@ -78,5 +84,4 @@ function renderResults(items) {
   });
 }
 
-/* expose function to HTML */
 window.getRecommendations = getRecommendations;

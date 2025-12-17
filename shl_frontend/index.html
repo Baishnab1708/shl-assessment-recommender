@@ -3,31 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <title>SHL Assessment Recommender</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon / Meta Icon -->
+  <link rel="icon" href="/shl_logo.png" type="image/png" />
+
   <link rel="stylesheet" href="src/styles.css" />
 </head>
 <body>
 
-  <!-- Header -->
   <header class="header">
-    <img src="public/shl_logo.png" alt="SHL Logo" class="logo" />
+    <img src="/shl_logo.png" alt="SHL Logo" class="logo" />
     <h1>Assessment Recommendation Engine</h1>
     <p>Find the right SHL assessments for any role</p>
   </header>
 
-  <!-- Search Card -->
   <main class="container">
     <div class="card">
       <label for="query">Describe the role or requirement</label>
-      <textarea id="query" placeholder="e.g. Java backend developer with leadership skills"></textarea>
+      <textarea
+        id="query"
+        placeholder="e.g. Java backend developer with leadership skills"
+      ></textarea>
 
       <label for="topK">Number of recommendations</label>
-      <input type="number" id="topK" value="10" min="1" max="15" />
+      <input
+        type="number"
+        id="topK"
+        value="5"
+        min="1"
+        max="10"
+      />
 
-      <button onclick="getRecommendations()">Get Recommendations</button>
+      <button onclick="getRecommendations()">
+        Get Recommendations
+      </button>
     </div>
 
-    <!-- Results -->
     <div id="results" class="results"></div>
   </main>
 
