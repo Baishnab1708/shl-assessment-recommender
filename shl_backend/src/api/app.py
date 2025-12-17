@@ -2,11 +2,12 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from pathlib import Path
 import pandas as pd
-import numpy as np
 import faiss
 import math
 import re
-from sentence_transformers import SentenceTransformer
+import os
+import numpy as np
+from huggingface_hub import InferenceClient
 from fastapi.middleware.cors import CORSMiddleware
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -16,7 +17,11 @@ FAISS_FILE = BASE_DIR / "data/index/faiss.index"
 
 df = pd.read_csv(CATALOG_FILE).fillna("")
 index = faiss.read_index(str(FAISS_FILE))
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+
+client = InferenceClient(
+    provider="hf-inference",
+    api_key=os.environ["HF_TOKEN"]
+)
 
 app = FastAPI(
     title="SHL Assessment Recommendation API",
@@ -46,9 +51,7 @@ def parse_duration_to_minutes(value: str) -> int:
     if not value:
         return 0
     match = re.search(r"\d+", value)
-    if match:
-        return int(match.group())
-    return 0
+    return int(match.group()) if match else 0
 
 def expand_query(query: str) -> str:
     q = query.lower()
@@ -61,6 +64,14 @@ def expand_query(query: str) -> str:
         expansions.append("personality and behavior assessment")
 
     return query + ". " + ". ".join(expansions)
+
+def embed_text(text: str) -> np.ndarray:
+    vector = client.feature_extraction(
+        text,
+        model="sentence-transformers/all-MiniLM-L6-v2",
+    )
+    vec = np.array(vector, dtype="float32")
+    return vec / np.linalg.norm(vec)
 
 def balance_by_test_type(candidates, top_k):
     k_items, p_items, other_items = [], [], []
@@ -98,14 +109,9 @@ def recommend(req: RecommendRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
     top_k = max(1, min(req.top_k, 10))
-
     expanded_query = expand_query(req.query)
 
-    query_vector = model.encode(
-        [expanded_query],
-        convert_to_numpy=True,
-        normalize_embeddings=True
-    )
+    query_vector = embed_text(expanded_query).reshape(1, -1)
 
     _, indices = index.search(query_vector, 30)
 
@@ -127,4 +133,3 @@ def recommend(req: RecommendRequest):
     return {
         "recommended_assessments": results
     }
-

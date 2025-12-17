@@ -8,13 +8,13 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 CATALOG_FILE = BASE_DIR / "data/processed/catalog_clean.csv"
 FAISS_FILE = BASE_DIR / "data/index/faiss.index"
-TRAIN_FILE = BASE_DIR / "data/train/Gen_AI_Dataset.xlsx"  # adjust if filename differs
+DATASET_FILE = BASE_DIR / "data/dataset/Gen_AI_Dataset.xlsx"  # adjust if filename differs
 
 df = pd.read_csv(CATALOG_FILE).fillna("")
 index = faiss.read_index(str(FAISS_FILE))
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
-train_df = pd.read_excel(TRAIN_FILE)
+train_df = pd.read_excel(DATASET_FILE, sheet_name="Train-Set")
 
 QUERY_COL = "Query"
 RELEVANT_COL = "Assessment_url"   # comma-separated URLs
