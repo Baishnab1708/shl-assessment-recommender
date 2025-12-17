@@ -49,21 +49,21 @@ Web Frontend
 SHL_RECOMMENDATION_SYSTEM/
 ├── shl_backend/
 │ ├── data/
-│ │ ├── raw/ # Raw scraped SHL catalog data
-│ │ ├── processed/ # Cleaned and structured catalog CSV
-│ │ ├── embeddings/ # Stored embedding vectors
-│ │ ├── index/ # FAISS index files
-│ │ ├── dataset/ # SHL provided train/test Excel file
+│ │ ├── raw/           # Raw scraped SHL catalog data
+│ │ ├── processed/     # Cleaned and structured catalog CSV
+│ │ ├── embeddings/    # Stored embedding vectors
+│ │ ├── index/         # FAISS index files
+│ │ ├── dataset/       # SHL provided train/test Excel file
 │ │ └── test_predictions/ # Final CSV for submission
 │ │
 │ ├── src/
-│ │ ├── scraper/ # SHL catalog crawler
+│ │ ├── scraper/      # SHL catalog crawler
 │ │ ├── preprocessing/ # Data cleaning and parsing
-│ │ ├── embeddings/ # Embedding generation
-│ │ ├── index/ # FAISS index builder
-│ │ ├── evaluate/ # Recall@5 / Recall@10 evaluation
-│ │ ├── predict/ # Test-set prediction generation
-│ │ └── api/ # FastAPI application
+│ │ ├── embeddings/   # Embedding generation
+│ │ ├── index/        # FAISS index builder
+│ │ ├── evaluate/     # Recall@5 / Recall@10 evaluation
+│ │ ├── predict/      # Test-set prediction generation
+│ │ └── api/          # FastAPI application
 │ │
 │ ├── Dockerfile
 │ ├── requirements.txt
