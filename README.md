@@ -1,5 +1,19 @@
 # SHL Assessment Recommendation System
 
+### Frontend
+
+URL: https://shl-assessment-recommender-gilt.vercel.app
+
+### Backend API
+
+Base URL: https://shl-recomendation-system.onrender.com
+
+Health Check: /health
+
+Recommendation Endpoint: /recommend
+
+Replace the URLs above with your actual deployed links.
+
 ## Overview
 
 This repository contains an end-to-end **GenAI-powered recommendation system** designed to recommend relevant **SHL Individual Test Solutions** for a given natural language hiring query or job description.
@@ -31,6 +45,7 @@ Web Frontend
 
 ## Repository Structure
 
+```
 SHL_RECOMMENDATION_SYSTEM/
 ├── shl_backend/
 │ ├── data/
@@ -65,8 +80,7 @@ SHL_RECOMMENDATION_SYSTEM/
 │ └── approach_2page.pdf # Final technical report
 │
 └── README.md
-
-
+```
 ---
 
 ## Data Pipeline
@@ -166,9 +180,9 @@ Example request:
   "query": "Hiring a Java developer who can collaborate with stakeholders",
   "top_k": 10
 }
+```
 
-
-Frontend
+## Frontend
 
 Lightweight web UI
 
@@ -178,7 +192,7 @@ Displays recommendations in tabular format
 
 Communicates with backend API via HTTP
 
-Deployment
+## Deployment
 
 Backend and frontend deployed independently
 
@@ -186,7 +200,7 @@ Environment variables used for secrets (HF token)
 
 API and frontend URLs submitted as part of assignment
 
-Design Principles
+## Design Principles
 
 Semantic retrieval over keyword matching
 
@@ -198,7 +212,7 @@ Clear separation of concerns
 
 Avoidance of opaque black-box generation
 
-Limitations and Future Work
+## Limitations and Future Work
 
 Cross-encoder reranking for higher precision
 
@@ -208,17 +222,7 @@ Learning-to-rank models
 
 Personalization based on role seniority
 
-Author
+## Author
 
 Baishnab Behera
 GenAI / ML Engineer
-
-
----
-
-If you want next:
-- I can **tighten this further to exactly 2 pages**
-- Or align it **word-for-word with your PDF report**
-- Or run a **final SHL reviewer simulation** on this README
-
-This README is **submission-safe and reviewer-ready**.
