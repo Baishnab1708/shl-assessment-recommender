@@ -1,3 +1,12 @@
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 6500); 
+}
+
 async function getRecommendations() {
   const queryInput = document.getElementById("query");
   const topKInput = document.getElementById("topK");
@@ -17,6 +26,7 @@ async function getRecommendations() {
   }
 
   resultsDiv.innerHTML = "<p>Loading recommendations...</p>";
+  showToast();
 
   try {
     const API_BASE_URL = "https://shl-recomendation-system.onrender.com";
@@ -45,6 +55,8 @@ async function getRecommendations() {
       "<p style='color:red'>Failed to fetch recommendations</p>";
   }
 }
+
+
 
 function renderResults(items) {
   const resultsDiv = document.getElementById("results");

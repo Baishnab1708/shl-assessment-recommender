@@ -111,3 +111,24 @@ body {
   color: var(--text-light);
   margin: 0.45rem 0;
 }
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1f2933;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateX(120%);
+  transition: all 0.35s ease;
+  font-size: 0.9rem;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
